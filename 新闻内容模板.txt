@@ -1,0 +1,57 @@
+    [!--temp.header--]
+            <!-- banner 开始 -->
+            <div class="m-imgbox">
+                <img src="http://www.eaorong.com/theme/eaoron/images/info/pbanner01.jpg" />
+            </div>
+            <!-- banner 结束-->
+            <!--  内容开始 -->
+            <div class="m-page">
+                <div class="m-container">
+                    <div class="m-news">
+                        <ul class="m-tab">
+                                                    [e:loop={"select classname,classpath,bname,classid from [!db.pre!]enewsclass where bclassid=4 order by classid ",0,24,0}]
+     <li><a href="[!--news.url--]<?=$bqr[classpath]?>"  class="<?php if($bqr[classid] ==65){echo 'on';} ?>"><?=$bqr[classname]?></a></li>
+
+[/e:loop]
+                         </ul>
+                        
+[e:loop={65,1,0,0,'firsttitle=1','newstime DESC'}]      
+                        <div class="news-big g-ohide">
+                            <a href="<?=$bqr['titleurl']?>" class="news-img g-left">
+                                <img src="<?=$bqr['titlepic']?>" />
+                            </a>
+                            <a href="<?=$bqr['titleurl']?>" class="news-info g-right">
+                                <h3 class="g-toverflow"><?=$bqr['title']?></h3>
+                                <span>发布时间：<?=$bqr['newspath']?></span>
+                                <div class="news-p">
+                                    <?=$bqr['smalltext']?>
+</div>
+                                <span class="news-more">MORE</span>
+                            </a>
+                        </div>
+[/e:loop]
+
+                        <ul class="news-list">                                                                                                                               
+                     [e:loop={65,10,0,0,'firsttitle=0','newstime DESC'}]
+                            <li>
+                                <a href="<?=$bqr['titleurl']?>" class="g-ohide">
+                                    <div class="news-img g-left">
+                                        <img src="<?=$bqr['titlepic']?>" />
+                                    </div>
+                                    <div class="news-info g-right">
+                                        <h3 class="g-toverflow"><?=$bqr['title']?></h3>
+                                        <span>发布时间：<?=$bqr['newspath']?></span>
+                                        <div class="news-p">
+                                            <p><?=$bqr['smalltext']?></p>
+                                        </div>
+                                        <span class="news-more">MORE</span>
+                                    </div>
+                                </a>
+                            </li>
+[/e:loop]
+                     </ul>
+                    </div>
+                </div>
+            </div>
+            <!--  内容结束-->
+    [!--temp.footer--]
